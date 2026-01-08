@@ -49,6 +49,9 @@ def sprawdz_uklad(kosci):
     return ("Nic", 0, max(kosci))
 
 # --- GRA ---
+wygrane = 0
+przegrane = 0
+remisy = 0
 while True:
     print("\nTwój rzut:")
     gracz = rzut_kosci()
@@ -65,11 +68,15 @@ while True:
     print("\nWynik gry:")
     if (s_g, w_g) > (s_k, w_k):
         print("Wygrałeś!")
+        wygrane += 1
     elif (s_g, w_g) < (s_k, w_k):
         print("Przegrałeś")
+        przegrane += 1
     else:
         print("Remis!")
+        remisy += 1
 
     if input("\nGrasz dalej? (t/n): ").lower() != "t":
         print("Koniec gry")
+        print(f"Twoje statystyki: Wygrane={wygrane}, Przegrane={przegrane}, Remisy={remisy}")
         break
